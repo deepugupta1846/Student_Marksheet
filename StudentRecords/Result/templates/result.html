@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% block title %}result{% endblock %}
+{% block navbar %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/addstudents/">Add Student</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/showall/">Show All</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/result/">Result</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+{% endblock navbar %}
+
+{% block form %}
+<div class="row m-5" id="form">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <form action="" method="post">
+            {% csrf_token %}
+            <label class="text text-white">Enter Roll No.: </label>
+            <input type="number" placeholder="Enter Roll No." name="rollno"/>
+            <input type="submit" value="View">
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        {% if msg %}
+        <p class="alert alert-danger text-center" id="errmsg">{{msg}}</p>
+        {% endif %}
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% for i in r %}
+<div class="row p-5 rounded" id="markseet" >
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-3">
+                <label class="text" >Student's Name : </label>
+             </div>
+            <div class="col-md-3">
+                 <label class="text" >{{i.sname}} </label>
+             </div>
+            <div class="col-md-6"></div>
+         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label class="text">Father's's Name : </label>
+             </div>
+            <div class="col-md-3">
+                 <label class="text">{{i.fname}} </label>
+             </div>
+            <div class="col-md-6"></div>
+         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label class="text">Mother's Name : </label>
+             </div>
+            <div class="col-md-3">
+                 <label class="text">{{i.mname}} </label>
+             </div>
+            <div class="col-md-6"></div>
+         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label class="text">Gender : </label>
+             </div>
+            <div class="col-md-3">
+                 <label class="text">{{i.gender}} </label>
+             </div>
+            <div class="col-md-6"></div>
+         </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="text">Class : </label>
+             </div>
+            <div class="col-md-2">
+                 <label class="text">{{i.clas}} </label>
+             </div>
+            <div class="col-md-2">
+                <label class="text">Roll No. </label>
+            </div>
+            <div class="col-md-2">
+                <label class="text">{{i.roll}} </label>
+            </div>
+         </div>
+        <hr/>
+        <div class="row">
+           <div class="col-md-10">
+               <table class="table table-striped">
+                   <tr>
+                       <th>SUBJECT</th>
+                       <th>FULL-MARKS</th>
+                       <th>PASS-MARKS</th>
+                       <th>OBTAINED-MARKS</th>
+                   </tr>
+                   <tr>
+                       <td>PAPER1</td>
+                       <td>100</td>
+                       <td>30</td>
+                       <td>{{i.paper1}}</td>
+                   </tr>
+                   <tr>
+                       <td>PAPER2</td>
+                       <td>100</td>
+                       <td>30</td>
+                       <td>{{i.paper2}}</td>
+                   </tr>
+                   <tr>
+                       <td>PAPER3</td>
+                       <td>100</td>
+                       <td>30</td>
+                       <td>{{i.paper3}}</td>
+                   </tr>
+                   <tr>
+                       <td>PAPER4</td>
+                       <td>100</td>
+                       <td>30</td>
+                       <td>{{i.paper4}}</td>
+                   </tr>
+                   <tr>
+                       <td>PAPER5</td>
+                       <td>100</td>
+                       <td>30</td>
+                       <td>{{i.paper5}}</td>
+                   </tr>
+                   <hr/>
+                   <tr>
+                       <th></th>
+                       <th></th>
+                       <th>Total</th>
+                       <th>{{i.total}}</th>
+                   </tr>
+                   <tr>
+                       <th></th>
+                       <th></th>
+                       <th>Percent</th>
+                       <th>{{i.percent}}</th>
+                   </tr>
+                   <tr>
+                       <th></th>
+                       <th></th>
+                       <th>Division</th>
+                       <th>{{i.division}}</th>
+                   </tr>
+               </table>
+           </div>
+            <div class="com-md-2"></div>
+
+         </div>
+        <button class="btn btn-primary " id="printbtn" onclick="window.print();">Print</button>
+        <button class="btn btn-primary " onclick="generatPDF();">Download</button>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

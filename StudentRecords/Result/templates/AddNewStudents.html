@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Add New Student{% endblock title %}
+{% block navbar %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/addstudents/">Add Student</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/showall/">Show All</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/result/">Result</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+        {% endblock navbar %}
+{% block form %}
+
+<div class="row">
+    <div class="col-md-1"></div>
+         <div class="col-md-10">
+             {% if msg %}
+                <p class="alert alert-success" id="successmsg".>{{ msg }}</p>
+             {% endif%}
+             <form action="" method="post" onsubmit="return confirm('Are you sure?')">
+                {% csrf_token %}
+                 <p class="text text-white">Personal Information</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        {{ form.sname}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.fname}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.mname}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.gender}}
+                    </div>
+                </div><br/>
+                 <div class="row">
+                    <div class="col-md-3">
+                        {{ form.clas}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.roll}}
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                 <br/>
+                 <p class="text text-white">Student Marks</p>
+                 <div class="row">
+                    <div class="col-md-4">
+                        {{ form.paper1}}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.paper2}}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.paper3}}
+                    </div>
+                </div>
+                 <br/>
+                 <div class="row">
+                    <div class="col-md-4">
+                        {{ form.paper4}}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.paper5}}
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" class="btn btn-primary btn-block">
+                    </div>
+                </div>
+
+             </form>
+         </div>
+
+</div>
+{% endblock form %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block navbar %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded ">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/addstudents/">Add Student</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/showall/">Show All</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/result/">Result</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Logout</a>
+                  </li>
+                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">{{ nt }}</a>
+                </ul>
+            </div>
+        </nav>
+        {% endblock navbar %}
+{% block form %}
+<div class="raw">
+    <br/>
+    <div class="col-md-4 ">
+        <a href="/" class="nav-link"><button class=" btn btn-block btn-success p-3 m-2 homeanimation">Add Student</button></a>
+    </div>
+    <div class="col-md-4 ">
+        <a href="/showall/" class="nav-link"><button class=" btn btn-block btn-success p-3 m-2 homeanimation">Show All Student</button></a>
+    </div>
+    <div class="col-md-4">
+        <a href="/result/" class="nav-link"><button class=" btn btn-block btn-success p-3 m-2 homeanimation">Download Result</button></a>
+    </div>
+
+
+</div>
+{% endblock %}

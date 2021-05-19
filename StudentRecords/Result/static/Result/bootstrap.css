@@ -1,0 +1,55 @@
+{% load static %}
+body{
+        width:100%;
+        height:100%;
+        background-image: url("{% static 'result/image/nikhita.jpg' %}");
+        background-size: 100vw 100vh;
+       background-attachment: fixed;
+        }
+
+        .table-fixed{
+            display : block;
+            height : 430px;
+            overflow-y: auto;
+            width : 1150PX;
+        }
+        .homeanimation{
+    animation: nav 7s infinite alternate;
+    border:None;
+    }
+    @keyframes nav{
+    from{
+			background:#39C0ED;
+			color:
+		}
+		to{
+			background:#F93154;
+		}
+    }
+    #errmsg{
+    transform:translatey(0px);
+    animation: msg 0.5s  alternate;
+    }
+    @keyframes msg{
+    from{
+			transform:translatey(-400px);
+		}
+		to{
+			transform:translatey(0px);
+		}
+    }
+    a{
+    text-decoration: none;
+    }
+    #markseet{
+    background : white;
+
+    }
+    @media print{
+    #form{
+    display:none;
+    }
+    #printbtn{
+    display:none;
+    }
+    }

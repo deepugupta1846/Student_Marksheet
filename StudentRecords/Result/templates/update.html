@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}update{% endblock %}
+{% block form %}
+<form action="" method="post">
+    {% csrf_token %}
+                 <p class="text text-white">Personal Information</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        {{ form.sname}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.fname}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.mname}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.gender}}
+                    </div>
+                </div><br/>
+                 <div class="row">
+                    <div class="col-md-3">
+                        {{ form.clas}}
+                    </div>
+                    <div class="col-md-3">
+                        {{ form.roll}}
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                 <br/>
+                 <p class="text text-white">Student Marks</p>
+                 <div class="row">
+                    <div class="col-md-4">
+                        {{ form.paper1}}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.paper2}}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.paper3}}
+                    </div>
+                </div>
+                 <br/>
+                 <div class="row">
+                    <div class="col-md-4">
+                        {{ form.paper4}}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form.paper5}}
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" class="btn btn-primary btn-block">
+                    </div>
+                </div>
+</form>
+
+{% endblock %}
